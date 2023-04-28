@@ -17,21 +17,25 @@ const server = http.createServer((req, res)=>{
     if (url === '/message' && method === 'POST') {
         const body = [];
         req.on('data', (chunk) => {
-            console.log(chunk);
             body.push(chunk);
         });
+        // Blocking and Non-Blocking Code
+        // writeFile vs writeFileSync
         req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
             let message = parsedBody.split('=')[1];
             message = message.replaceAll("+", " ");
-            fs.writeFileSync('message.txt', message);
-        })
-        
-        res.statusCode = 302;
-        res.setHeader('Location', '/');
-        return res.end();
+            fs.writeFile('message.txt', message, err => {
+                console.log('level-4');
+                res.statusCode = 302;
+                res.setHeader('Location', '/');
+                return res.end();
+            });
+            console.log('level-1')
+        });
+        console.log('level-2');
     }
-
+    console.log('level-3');
     res.setHeader('Content-Type', 'text/html');
     res.write('<html>');
     res.write('<head><title>My First Page</title></head>');
