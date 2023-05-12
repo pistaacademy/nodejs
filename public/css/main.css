@@ -1,10 +1,17 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .app_header {
     width: 100vw;
-    height: 10rem;
+    height: 5rem;
     background-color: rgb(21, 74, 121);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-left: 2rem;
 }
 .app_header ul {
     display: flex;
@@ -21,4 +28,35 @@
     color: white;
     text-decoration: none;
     margin-left: 1rem;
+}
+
+.main_product {
+    padding: 3rem;
+}
+
+.main_product form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.main_product form input {
+    padding: 1rem 1rem;
+}
+
+.main_product form button{
+    padding: 1rem 2rem;
+    background-color: rgb(21, 74, 121);
+    color: white;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.app_main {
+    padding: 5rem;
+}
+
+.app_main h1 {
+    margin-bottom: 1rem;
 }
