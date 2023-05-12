@@ -1,0 +1,24 @@
+.app_header {
+    width: 100vw;
+    height: 10rem;
+    background-color: rgb(21, 74, 121);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app_header ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.app_header ul li {
+    list-style: none;
+}
+
+.app_header ul a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1rem;
+}
