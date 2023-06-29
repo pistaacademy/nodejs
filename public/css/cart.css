@@ -1,0 +1,35 @@
+.cart-main {
+    margin-top: 2rem;
+    width: 90%;
+    background-color: rgb(243, 241, 241);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-main ul {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.cart-main ul li {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+    background-color: white;
+}
+
+.cart-btn {
+    background-color: red;
+    color: white;
+    padding: 1rem 1.5rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.cart-btn:hover {
+    opacity: 0.7;
+}
