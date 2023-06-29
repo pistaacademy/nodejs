@@ -29,6 +29,7 @@
     border: none;
     font-size: 1rem;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
 .cart-btn:hover {
