@@ -11,12 +11,12 @@
                 <ul>
                     <% orders.forEach(order => { %>
                         <li>
-                            <h1># <%= order.id %></h1>
+                            <h1># <%= order._id %></h1>
                             <ul>
-                                <% order.products.forEach(product => { %>
+                                <% order.items.forEach(product => { %>
                                     <li>
                                         <h3>Product Name: <span><%= product.title %></span></h3>
-                                        <h4>Quantity : <%= product.orderItem.quantity %></h4>
+                                        <h4>Quantity : <%= product.quantity %></h4>
                                     </li>
                                 <% }); %>
                             </ul>
