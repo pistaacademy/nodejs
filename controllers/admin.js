@@ -1,7 +1,4 @@
 const Product = require('../models/product');
-
-
-
 exports.getAddProduct = (req, res, next) => {
   
   res.render('admin/edit-product', {
@@ -11,7 +8,7 @@ exports.getAddProduct = (req, res, next) => {
     formsCSS: true,
     productCSS: true,
     activeAddProduct: true,
-    isAuthenticated: req.isLoggedIn
+    isAuthenticated: req.session.isLoggedIn
   });
 };
 
@@ -26,7 +23,7 @@ exports.postAddProduct = (req, res, next) => {
     price: price,
     description: description,
     imageUrl: imageUrl,
-    userId: req.user
+    userId: req.session.user
   });
   product.save()
   .then(result => {
@@ -54,7 +51,7 @@ exports.getEditProduct = (req, res, next) => {
         formsCSS: true,
         productCSS: true,
         activeAddProduct: true,
-        isAuthenticated: req.isLoggedIn
+        isAuthenticated: req.session.isLoggedIn
       });
   })
   .catch(err => console.log(err))
@@ -93,7 +90,7 @@ exports.getProducts = (req, res, next) => {
       prods: products,
       pageTitle: 'Admin Products',
       path: '/admin/products',
-      isAuthenticated: req.isLoggedIn
+      isAuthenticated: req.session.isLoggedIn
     });
   })
   .catch(err => console.log(err))
