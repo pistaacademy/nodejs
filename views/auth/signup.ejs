@@ -10,7 +10,7 @@
         <form class="login-form" action="/signup" method="POST">
             <div class="form-control">
                 <label for="email">E-Mail</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" autocomplete="off">
             </div>
             <div class="form-control">
                 <label for="password">Password</label>
@@ -20,7 +20,7 @@
                 <label for="confirmPassword">Confirm Password</label>
                 <input type="password" name="confirmPassword" id="confirmPassword">
             </div>
-            <button class="btn" type="submit">Login</button>
+            <button class="btn" type="submit">Signup</button>
         </form>
     </main>
 <%- include('../includes/end.ejs') %>
