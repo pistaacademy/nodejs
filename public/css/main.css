@@ -23,6 +23,18 @@ form {
   text-align: center;
 }
 
+.top_margin {
+  margin-top: 1rem;
+}
+
+.reset_btn {
+  background-color: #00695c;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+}
+
 .image {
   height: 20rem;
 }
