@@ -76,14 +76,7 @@ exports.postSignup = (req, res, next) => {
       errorMessage: errors.array()[0].msg
     })
   }
-
-  User.findOne({ email: email })
-    .then(userDoc => {
-      if(userDoc) {
-        req.flash('error', 'Email exists already, please pick a different one')
-        return res.redirect('/signup')
-      }
-      return bcrypt.hash(password, 12)
+  bcrypt.hash(password, 12)
       .then(hashedPassword => {
         const user = new User({
           email: email,
@@ -94,7 +87,21 @@ exports.postSignup = (req, res, next) => {
       })
       .then(result => {
         res.redirect('/login');
-      })
+        var transport = nodemailer.createTransport({
+          host: "sandbox.smtp.mailtrap.io",
+          port: 2525,
+          auth: {
+            user: "9f148210abda74",
+            pass: "aba7d68885f20e"
+          }
+        });
+  
+        transport.sendMail({
+          from: 'signup@nodeApp.com',
+          to : req.body.email,
+          subject: 'Signup Confirmation',
+          html: `<p>You successfully signed up!</p>`
+        })
       })
     .catch(err => {
       console.log(err)
