@@ -1,6 +1,7 @@
 const path = require('path');
 const csrf = require('csurf');
 const flash = require('connect-flash')
+const multer  = require('multer')
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -29,6 +30,7 @@ const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(multer({dest: 'images'}).single('image'))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   session({
